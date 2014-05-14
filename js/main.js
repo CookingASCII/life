@@ -1,5 +1,6 @@
 var game = {
     time: {
+	    days: 0,
 	    weeks: 0,
 		months: 0,
 		years: 0, 
@@ -23,26 +24,7 @@ var game = {
 	}
 };
 
-function born(){
-    document.getElementById('image').innerHTML = game.images.eras.feudal.baby;
-	document.getElementById('hiddenbutton').style.display = 'block';
-	document.getElementById('timeinfo').style.display = 'block';
-}
-function liveWeek(){
-    game.time.weeks++;
-	if(game.time.weeks>=4){
-	    game.time.weeks-=4;
-		game.time.months++;
-	}
-	if(game.time.months>=12){
-	    game.time.months-=12;
-		game.time.years++;
-	}
-	document.getElementById('weeks').innerHTML = game.time.weeks;
-	document.getElementById('months').innerHTML = game.time.months;
-	document.getElementById('years').innerHTML = game.time.years;
-}
-
-function save(){
-    
-}
+window.setInterval(function(){
+    game.time.days++;
+	document.getElementById('days').innerHTML = game.time.days;
+}, 150);
